@@ -114,7 +114,7 @@ namespace Uno
 
                     if (playerHands[currentPlayer].Count == 0)
                     {
-                        MessageBox.Show($"Игрок {currentPlayer + 1} победил!");
+                        MessageBox.Show($"Grać {currentPlayer + 1} winner!");
                         Application.Exit();
                     }
                     else
@@ -122,7 +122,7 @@ namespace Uno
                 }
                 else
                 {
-                    MessageBox.Show("Эту карту нельзя положить.");
+                    MessageBox.Show("Ta karta nie może zostać umieszczona.");
                 }
             }
         }
@@ -141,7 +141,7 @@ namespace Uno
                     HandleSpecialCard(selected);
                     if (playerHands[currentPlayer].Count == 0)
                     {
-                        MessageBox.Show($"Игрок {currentPlayer + 1} победил!");
+                        MessageBox.Show($"Grać {currentPlayer + 1} winner!");
                         Application.Exit();
                     }
                     else
@@ -169,7 +169,7 @@ namespace Uno
             }
             else if (card.Value == "Color")
             {
-                string color = Prompt.ShowDialog("Выбери цвет (Red/Green/Blue/Yellow)", "Смена цвета");
+                string color = Prompt.ShowDialog("Wybierz kolor (Red/Green/Blue/Yellow)", "Zmiana koloru");
                 card.Color = color;
             }
         }
@@ -189,23 +189,23 @@ namespace Uno
 
         private void UpdateUI()
         {
-            labelCurrent.Text = $"Ход игрока {currentPlayer + 1}";
-            labelTopCard.Text = $"Верхняя карта: {discardPile.Peek()}";
+            labelCurrent.Text = $"Tura gracza {currentPlayer + 1}";
+            labelTopCard.Text = $"Górna karta: {discardPile.Peek()}";
             listBoxHand.Items.Clear();
             foreach (var card in playerHands[currentPlayer])
                 listBoxHand.Items.Add(card.ToString());
 
             listBoxCounts.Items.Clear();
             for (int i = 0; i < playerCount; i++)
-                listBoxCounts.Items.Add($"Игрок {i + 1}: {playerHands[i].Count} карт");
+                listBoxCounts.Items.Add($"Grać {i + 1}: {playerHands[i].Count} karty");
         }
 
         private void buttonUno_Click(object sender, EventArgs e)
         {
             if (playerHands[currentPlayer].Count == 1)
-                MessageBox.Show("УНО подтверждено!");
+                MessageBox.Show("UNO potwierdzone!");
             else
-                MessageBox.Show("УНО нельзя кричать сейчас.");
+                MessageBox.Show("UNO nie może być teraz wykrzyczane.");
         }
     }
 
