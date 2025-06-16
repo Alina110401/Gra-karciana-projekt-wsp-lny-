@@ -15,7 +15,7 @@ namespace Uno
         public PassTurnForm(int playerNumber)
         {
             InitializeComponent();
-            label1.Text = $"Ход игрока {playerNumber}. Передайте управление и нажмите 'Готов'.";
+            label1.Text = $"Tura gracza {playerNumber}. Przekaż kontrolę i kliknij „Gotowe”.";
         }
         private void buttonReady_Click(object sender, EventArgs e)
         {

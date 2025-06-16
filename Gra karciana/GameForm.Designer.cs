@@ -40,9 +40,9 @@
             // 
             buttonDraw.Location = new Point(509, 362);
             buttonDraw.Name = "buttonDraw";
-            buttonDraw.Size = new Size(86, 49);
+            buttonDraw.Size = new Size(177, 49);
             buttonDraw.TabIndex = 0;
-            buttonDraw.Text = "Draw";
+            buttonDraw.Text = "Pobrać kartę";
             buttonDraw.UseVisualStyleBackColor = true;
             buttonDraw.Click += buttonDraw_Click;
             // 
@@ -86,11 +86,11 @@
             // 
             buttonPlay.Location = new Point(511, 314);
             buttonPlay.Name = "buttonPlay";
-            buttonPlay.Size = new Size(84, 43);
+            buttonPlay.Size = new Size(175, 43);
             buttonPlay.TabIndex = 5;
-            buttonPlay.Text = "Confirm";
+            buttonPlay.Text = "Potwierdzam krok";
             buttonPlay.UseVisualStyleBackColor = true;
-            buttonPlay.Click += this.buttonPlay_Click;
+            buttonPlay.Click += buttonPlay_Click;
             // 
             // GameForm
             // 

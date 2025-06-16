@@ -47,7 +47,7 @@
             buttonReady.Name = "buttonReady";
             buttonReady.Size = new Size(343, 116);
             buttonReady.TabIndex = 1;
-            buttonReady.Text = "Ready";
+            buttonReady.Text = "Gotowe";
             buttonReady.UseVisualStyleBackColor = true;
             buttonReady.Click += buttonReady_Click;
             // 
