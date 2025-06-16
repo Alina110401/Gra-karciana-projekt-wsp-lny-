@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-public class GraWTysiaca
+public class GraWTysiaca:Form
 {
     public class Karta
     {

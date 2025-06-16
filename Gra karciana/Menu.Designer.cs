@@ -62,6 +62,7 @@
             button2.TabIndex = 2;
             button2.Text = "Ustawienia";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += Ustawienia_Click;
             // 
             // button3
             // 
@@ -71,6 +72,7 @@
             button3.TabIndex = 3;
             button3.Text = "Tysiąc";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += Tysiaca_Click;
             // 
             // button4
             // 
@@ -80,6 +82,7 @@
             button4.TabIndex = 4;
             button4.Text = "Uno";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += Uno_Click;
             // 
             // Menu
             // 
