@@ -31,6 +31,8 @@
             label1 = new Label();
             button1 = new Button();
             button2 = new Button();
+            button3 = new Button();
+            button4 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -61,11 +63,31 @@
             button2.Text = "Ustawienia";
             button2.UseVisualStyleBackColor = true;
             // 
+            // button3
+            // 
+            button3.Location = new Point(260, 244);
+            button3.Name = "button3";
+            button3.Size = new Size(112, 34);
+            button3.TabIndex = 3;
+            button3.Text = "Tysiąc";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(443, 257);
+            button4.Name = "button4";
+            button4.Size = new Size(112, 34);
+            button4.TabIndex = 4;
+            button4.Text = "Uno";
+            button4.UseVisualStyleBackColor = true;
+            // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button4);
+            Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label1);
@@ -80,5 +102,7 @@
         private Label label1;
         private Button button1;
         private Button button2;
+        private Button button3;
+        private Button button4;
     }
 }
