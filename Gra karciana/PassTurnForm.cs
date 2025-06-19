@@ -12,10 +12,10 @@ namespace Uno
 {
     public partial class PassTurnForm : Form
     {
-        public PassTurnForm(int playerNumber)
+        public PassTurnForm(string playerName)
         {
             InitializeComponent();
-            label1.Text = $"Tura gracza {playerNumber}. Przekaż kontrolę i kliknij „Gotowe”.";
+            label1.Text = $"Tura: {playerName}. Przekaż kontrolę i kliknij „Gotowe”.";
         }
         private void buttonReady_Click(object sender, EventArgs e)
         {

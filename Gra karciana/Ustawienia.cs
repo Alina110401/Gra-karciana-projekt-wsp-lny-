@@ -13,6 +13,7 @@ namespace Gra_karciana
     public partial class Ustawienia : Form
     {
         public int LiczbaGraczy { get; private set; } = 2; // domyślnie 2 graczy
+        public List<string> Nicknames { get; private set; } = new();
 
         public Ustawienia()
         {
@@ -21,7 +22,21 @@ namespace Gra_karciana
 
         private void Dodaj_Click(object sender, EventArgs e)
         {
-            LiczbaGraczy = dataGridView1.Rows.Count - 1;
+            Nicknames.Clear();
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                string imie = row.Cells[0].Value?.ToString()?.Trim() ?? "";
+                string nazwisko = row.Cells[1].Value?.ToString()?.Trim() ?? "";
+
+                if (!string.IsNullOrEmpty(imie) || !string.IsNullOrEmpty(nazwisko))
+                {
+                    Nicknames.Add($"{imie} {nazwisko}".Trim());
+                }
+            }
+
+            LiczbaGraczy = Nicknames.Count;
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

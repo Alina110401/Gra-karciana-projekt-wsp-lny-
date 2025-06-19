@@ -22,16 +22,17 @@ namespace Uno
         private List<List<Card>> playerHands = new();
         private List<Card> deck = new();
         private Stack<Card> discardPile = new();
-        private int playerCount;
+        private List<string> playerNames = new();
         private int currentPlayer = 0;
         private int direction = 1;
         private Random rng = new();
-        public GameForm(int count)
+        public GameForm(List<string> playerNames)
         {
             InitializeComponent();
-            playerCount = count;
+            this.playerNames = playerNames;
             InitDeck();
             DealCards();
+
             Card firstCard;
             do
             {
@@ -47,6 +48,7 @@ namespace Uno
 
             UpdateUI();
         }
+
         private void InitDeck()
         {
             string[] colors = { "Red", "Green", "Blue", "Yellow" };
@@ -72,7 +74,7 @@ namespace Uno
 
         private void DealCards()
         {
-            for (int i = 0; i < playerCount; i++)
+            for (int i = 0; i < playerNames.Count; i++)
             {
                 var hand = new List<Card>();
                 for (int j = 0; j < 7; j++)
@@ -114,7 +116,7 @@ namespace Uno
 
                     if (playerHands[currentPlayer].Count == 0)
                     {
-                        MessageBox.Show($"Grać {currentPlayer + 1} winner!");
+                        MessageBox.Show($"{playerNames[currentPlayer]} wygrał grę!");
                         Application.Exit();
                     }
                     else
@@ -177,27 +179,27 @@ namespace Uno
         private void AdvanceTurn()
         {
             currentPlayer = GetNextPlayer();
-            var passForm = new PassTurnForm(currentPlayer + 1);
+            var passForm = new PassTurnForm(playerNames[currentPlayer]);
             passForm.ShowDialog();
             UpdateUI();
         }
 
         private int GetNextPlayer()
         {
-            return (currentPlayer + direction + playerCount) % playerCount;
+            return (currentPlayer + direction + playerNames.Count) % playerNames.Count;
         }
 
         private void UpdateUI()
         {
-            labelCurrent.Text = $"Tura gracza {currentPlayer + 1}";
+            labelCurrent.Text = $"Tura: {playerNames[currentPlayer]}";
             labelTopCard.Text = $"Górna karta: {discardPile.Peek()}";
             listBoxHand.Items.Clear();
             foreach (var card in playerHands[currentPlayer])
                 listBoxHand.Items.Add(card.ToString());
 
             listBoxCounts.Items.Clear();
-            for (int i = 0; i < playerCount; i++)
-                listBoxCounts.Items.Add($"Grać {i + 1}: {playerHands[i].Count} karty");
+            for (int i = 0; i < playerNames.Count; i++)
+                listBoxCounts.Items.Add($"{playerNames[i]}: {playerHands[i].Count} kart");
         }
 
         private void buttonUno_Click(object sender, EventArgs e)
